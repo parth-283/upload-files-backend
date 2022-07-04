@@ -25,7 +25,7 @@ app.post("/upload", (req, res) => {
         .status(500)
         .send({ message: "File upload failed", code: 200, error: err });
     }
-    return res.status(200).send({ message: "File Uploaded", code: 200, FileURL:`http://localhost:${PORT}/${filename}` });
+    return res.status(200).send({ message: "File Uploaded", code: 200, FileURL:(PORT === 4000 ? `http://localhost:${PORT}/${filename}` :`${PORT}/${filename}`) });
   });
 });
 
